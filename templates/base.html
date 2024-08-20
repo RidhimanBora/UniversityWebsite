@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Sikkim University</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+
+    <!-- Alternative to Bootstrap 3 Glyphicons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+
+  <!-- Favicons -->
+  <link href='{% static "assets/img/logo_big2.png" %}' rel="icon">
+  <!-- <link href='{% static "assets/img/apple-touch-icon.png" %}' rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href='{% static "assets/vendor/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+  <link href='{% static "assets/vendor/icofont/icofont.min.css" %}' rel="stylesheet">
+  <link href='{% static "assets/vendor/boxicons/css/boxicons.min.css" %}' rel="stylesheet">
+  <link href='{% static "assets/vendor/owl.carousel/assets/owl.carousel.min.css" %}' rel="stylesheet">
+  <link href='{% static "assets/vendor/venobox/venobox.css" %}' rel="stylesheet">
+  <link href='{% static "assets/vendor/aos/aos.css" %}' rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href='{% static "assets/css/style.css" %}' rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="">
+    <div class="">
+
+      <div class="logo1">
+          <div class="row">
+            <div class="col-xs-1 col-md-1 col-lg-1 ">
+              <a href="{% url 'index' %}"> <img class="logo-big" src='{% static "assets/img/logo_big2.png" %}' alt=""> </a></h1>
+            </div>
+
+            <div class="col-xs-3 col-md-3 col-lg-3 ">
+              <h1 class="text-light"><a href='{% url "index" %}' style="color: white;">Sikkim University</a></h1>
+            </div>
+
+      <div class="col-xs-8 col-md-8 col-lg-8" >
+        <nav class="nav-menu d-none d-lg-block" style="float:right; padding-right:20px;">
+          <ul >
+            <li><a href="{%url 'index'%}">Home</a></li>
+            <li><a href="/#about">About</a></li>
+
+            <li class="drop-down"><a href="/#faculties">Faculties</a>
+              <ul>
+                <li><a href="{% url 'faculties:create_faculty' %}">Create Faculty</a></li>
+                <li><a href="{% url 'faculties:faculty_list' %}">All Faculties</a></li>
+
+              </ul>
+            </li>
+
+            <li class="drop-down"><a href="/#departments">Department</a>
+              <ul>
+                <li><a href="{% url 'departments:create_department' %}">Create Department</a></li>
+                <li><a href="{% url 'departments:all_departments' %}">All Departments</a></li>
+
+              </ul>
+            </li>
+
+            <li class="drop-down"><a href="/#portfolio">Gallery</a>
+              <ul>
+                <li><a href="{% url 'faculties:gallery_form' %}">Upload Photos</a></li>
+                <li><a href="{% url 'faculties:varsity_images' %}">View Gallery</a></li>
+
+              </ul>
+            </li>
+
+            {% if user.is_authenticated %}
+            <li class="drop-down"><a href="">Student & Teachers</a>
+              <ul>
+                <li ><a href="{% url 'students:all_students' %}">Students</a>
+                </li>
+
+                <li ><a href="{% url 'faculties:faculty_list' %}">Faculties</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                <li>
+                  <a href="{% url 'students:student_register' %}">Create Student</a>
+                </li>
+                <li>
+                  <a href="{% url 'faculties:create_faculty' %}">Create Faculty</a>
+                </li>
+                {% endif %}
+
+              </ul>
+            </li>
+            {% endif %}
+
+            {% if user.is_authenticated  %}
+            <li class="drop-down"><a style="color:#8db3f0; text-decoration: underline;font-size:17px" href="#"> <strong>{{user.username}}</strong> </a>
+              <ul>
+                {% if user.is_superuser %}
+                  <li><span style="padding: 0px 0px 0px 20px;">Status: Superuser</a> </li>
+                  <li><a href="/admin/">Admin</a> </li>
+                  <li><a href="{% url 'logout' %}">Logout</a> </li>
+
+                {% elif user.teacher.Teacher_ID %}
+                  <li><span style="padding: 0px 0px 0px 20px;">Status: Teacher</span> </li>
+                  <li><a href="{% url 'teachers:teacher_detail' department_slug=user.teacher.department.department_slug teacher_slug=user.teacher.teacher_slug %}">Profile</a> </li>
+                  <li><a href="{% url 'logout' %}">Logout</a> </li>
+
+                {% elif user.student.student_ID %}
+                  <li><span style="padding: 0px 0px 0px 20px;">Status: Student </li>
+                  <li><a href="{% url 'students:student_detail' department_slug=user.student.department.department_slug student_slug=user.student.student_slug %}">Profile</a> </li>
+                  <li><a href="{% url 'logout' %}">Logout</a> </li>
+                {% endif %}
+
+              </ul>
+            </li>
+
+            {% else %}
+            <li class="drop-down"><a href="#">Login & Register</a>
+              <ul>
+              <li><a href="{% url 'user_login' %}">Login</a></li>
+
+              <li class="drop-down"><a href="#">Register</a>
+                <ul>
+                  <li><a href="{% url 'students:student_register' %}">As a Student</a></li>
+                  <li><a href="#">As a Teacher</a></li>
+                </ul>
+              </li>
+
+              </ul>
+            </li>
+            {% endif %}
+
+          </ul>
+        </nav><!-- .nav-menu -->
+
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+  </header><!-- End Header -->
+
+
+  {% block body_block %}
+
+  {% endblock %}
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-3">
+            <div class="footer-info">
+              <h3>Address</h3>
+              <p>
+                8H5Q+G58, Samdur, P. O, Tadong,  <br>
+                Gangtok, Sikkim 737102 <br><br>
+                <strong>Phone:</strong> 03592 251 468<br>
+                <strong>Email:</strong> contactus@cus.ac.in<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="https://www.facebook.com/sikkimuniversityofficial/?ref=br_rs" class="facebook"><i class="bx bxl-facebook"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-4 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'index'%}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://cus.ac.in/index.php/en/terms-and-conditions">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://cus.ac.in/index.php/en/location-of-su">Location of University</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-5 col-md-5 footer-newsletter">
+            <p> <a href="https://cus.ac.in/images/content/dynamic/noti/2019/Office%20order%20402-2019%20%26%20SU_IT_Resources_and_Internet_Facility_Usage_Policy_Eng.pdf">Sikkim University Information Technology (IT) Resources and Internet Facility Usage Policy</a>    || <a href="https://cus.ac.in/index.php/en/help-e">Help</a>  ||  Copyright © Sikkim University, 2017. All Rights Reserved. ||  <a href="https://cus.ac.in/index.php/en/content-disclaimer-2">Content Disclaimer</a>   || <a href="https://cus.ac.in/index.php/en/terms-and-conditions">Terms and Conditions</a> </p>
+            <br><br><br>
+            <div class="design"><h4>Designed and developed by Pinju Priyam</h4></div>
+            <!-- <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form> -->
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src='{% static "assets/vendor/jquery/jquery.min.js" %}'></script>
+  <script src='{% static "assets/vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+  <script src='{% static "assets/vendor/jquery.easing/jquery.easing.min.js" %}'></script>
+  <script src='{% static "assets/vendor/php-email-form/validate.js" %}'></script>
+  <script src='{% static "assets/vendor/owl.carousel/owl.carousel.min.js" %}'></script>
+  <script src='{% static "assets/vendor/isotope-layout/isotope.pkgd.min.js" %}'></script>
+  <script src='{% static "assets/vendor/venobox/venobox.min.js" %}'></script>
+  <script src='{% static "assets/vendor/aos/aos.js" %}'></script>
+
+  <!-- Template Main JS File -->
+  <script src='{% static "assets/js/main.js" %}'></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

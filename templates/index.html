@@ -1,0 +1,358 @@
+{% extends "base.html" %}
+<!-- {% load static %} -->
+{% block body_block %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <div class="container text-center text-md-left" data-aos="fade-up">
+    <h1>Welcome to Sikkim University</h1>
+    <h2>Our Vision -"To achieve intellectual, academic and cultural development of the people of Eastern Himalayas".
+    </h2>
+    <a href="#steps" class="btn-get-started scrollto">Explore...</a>
+  </div>
+</section>
+<!-- End Hero -->
+
+
+
+<main id="main">
+
+
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-xl-3 col-lg-3" data-aos="fade-right">
+          <img height="500" width="400" src='media/univerrsity/gallery/7.jpg' class="img-fluid" alt="">
+          <p></p> <img height="500" width="400" src='media/univerrsity/gallery/1.jpg' class="img-fluid" alt="">
+          <p></p> <img height="200" width="200" src='media/univerrsity/gallery/2.jpg' class="img-fluid" alt="">
+          <p></p> <img height="500" width="400" src='media/univerrsity/gallery/3.png' class="img-fluid" alt="">
+
+        </div>
+        <div class="col-xl-3 col-lg-4" data-aos="fade-right">
+          <img height="500" width="500" src='media/univerrsity/gallery/4.jpg' class="img-fluid" alt="">
+          <p></p> <img height="500" width="500" src='media/univerrsity/gallery/5.jpg' class="img-fluid" alt="">
+          <p></p> <img height="300" width="500" src='media/univerrsity/gallery/6.jpg' class="img-fluid" alt="">
+
+        </div>
+
+
+        <div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
+          <h3 data-aos="fade-up">Sikkim University</h3>
+          <p data-aos="fade-up">
+            Sikkim University presently located at Gangtok, the capital town of Sikkim operates from several hired
+            buildings located along NH-10. The main administrative office of the University is located at Samdur, 6th
+            Mile, Tadong. The permanent campus of the University is coming up at Yangang in South Sikkim. The nearest
+            airport and railway station are Bagdogra and New Jalpaiguri respectively.
+          </p>
+
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+            <i class="bx bx-cube-alt"></i>
+            <h4><a href="{% url 'faculties:faculty_list' %}"> Faculties </a> </h4>
+            <p>At present, it has ___ faculties in all the departments</p>
+          </div>
+
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+            <i class="bx bx-cube-alt"></i>
+            <h4><a href="{% url 'departments:all_departments' %}">Departments</a> </h4>
+            <p>Faculties include many degree offering departments namely CSTE, FIMS, Pharmacy, ACCE, MBG etc.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- End About Section -->
+
+
+
+  <!-- ======= Features Section ======= -->
+  <!-- <section id="departments" class="features">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+          <ul class="nav nav-tabs flex-column">
+
+
+
+            <li>
+              <p></p>
+            </li>
+            <li>
+              <a class="btn btn-primary" href="{% url 'departments:all_departments' %}">All Departments</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-7 ml-auto" data-aos="fade-left">
+          <div class="tab-content">
+            <h3 style="padding-left: 130px;color:#2f4b5c">Departments</h3>
+            <div class="tab-pane active show" id="tab-1">
+              <figure>
+                <img height="250" width="400" src='{% static "dept1.jpeg" %}' alt="" class="">
+                <p></p>
+                <img height="250" width="400" src='{% static "dept2.jpg" %}' alt="" class="">
+
+              </figure>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section> -->
+  <!-- End Features Section -->
+
+  <div class="container text-center text-md-left" data-aos="fade-up">
+    <h1>Departments</h1>
+    <!-- <h2>Our Vision -"To achieve intellectual, academic and cultural development of the people of Eastern Himalayas". -->
+    <!-- </h2> -->
+    <!-- <a href="#steps" class="btn-get-started scrollto">All Departments</a> -->
+    <a class="btn btn-primary" href="{% url 'departments:all_departments' %}">All Departments</a>
+  </div>
+  <br><br><br>
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    
+    <div class="carousel-inner">
+      
+      <div class="carousel-item active">
+        <img src="media/univerrsity/gallery/a.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="media/univerrsity/gallery/b1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="media/univerrsity/gallery/c.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio section-bg">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Gallery</h2>
+      </div>
+
+      <div class="row" data-aos="fade-up">
+        <div class="col-lg-12 d-flex justify-content-center">
+          <ul id="portfolio-flters">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-app">Departments</li>
+            <li data-filter=".filter-card">Events</li>
+            <li data-filter=".filter-web">Students</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row portfolio-container" data-aos="fade-up">
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src='media/univerrsity/gallery/1.jpg' class="img-fluid" alt="">
+            <div class="portfolio-info">
+
+              <div class="portfolio-links">
+                <a href='media/univerrsity/gallery/1.jpg' data-gall="portfolioGallery" class="venobox" title="App 1"><i
+                    class="bx bx-plus"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src='media/univerrsity/gallery/2.jpg' class="img-fluid" alt="">
+            <div class="portfolio-info">
+
+              <div class="portfolio-links">
+                <a href='media/univerrsity/gallery/2.jpg' data-gall="portfolioGallery" class="venobox" title="Web 3"><i
+                    class="bx bx-plus"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src='media/univerrsity/gallery/3.png' class="img-fluid" alt="">
+            <div class="portfolio-info">
+
+              <div class="portfolio-links">
+                <a href='media/univerrsity/gallery/3.png' data-gall="portfolioGallery" class="venobox" title="App 2"><i
+                    class="bx bx-plus"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src='media/univerrsity/gallery/4.jpg' class="img-fluid" alt="">
+            <div class="portfolio-info">
+
+              <div class="portfolio-links">
+                <a href='media/univerrsity/gallery/4.jpg' data-gall="portfolioGallery" class="venobox" title="Card 2"><i
+                    class="bx bx-plus"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src='media/univerrsity/gallery/5.jpg' class="img-fluid" alt="">
+            <div class="portfolio-info">
+
+              <div class="portfolio-links">
+                <a href='media/univerrsity/gallery/5.jpg' data-gall="portfolioGallery" class="venobox" title="Web 2"><i
+                    class="bx bx-plus"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src='media/univerrsity/gallery/6.jpg' class="img-fluid" alt="">
+            <div class="portfolio-info">
+
+              <div class="portfolio-links">
+                <a href='media/univerrsity/gallery/6.jpg' data-gall="portfolioGallery" class="venobox" title="App 3"><i
+                    class="bx bx-plus"></i></a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src='media/univerrsity/gallery/7.jpg' class="img-fluid" alt="">
+            <div class="portfolio-info">
+
+              <div class="portfolio-links">
+                <a href='media/univerrsity/gallery/7.jpg' data-gall="portfolioGallery" class="venobox" title="Card 1"><i
+                    class="bx bx-plus"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src='media/univerrsity/gallery/8.jpeg' class="img-fluid" alt="">
+            <div class="portfolio-info">
+
+              <div class="portfolio-links">
+                <a href='media/univerrsity/gallery/8.jpeg' data-gall="portfolioGallery" class="venobox"
+                  title="Card 3"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src='media/univerrsity/gallery/11.jpeg' class="img-fluid" alt="">
+            <div class="portfolio-info">
+
+              <div class="portfolio-links">
+                <a href='media/univerrsity/gallery/11.jpeg' data-gall="portfolioGallery" class="venobox"
+                  title="Web 3"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="" style="float: center;">
+        <h5 style="text-align: center;"> <a class="btn btn-primary" href="{% url 'faculties:varsity_images' %}">All
+            Photos</a>
+        </h5>
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Sikkim University is currently located at Gangtok, the capital town of Sikkim. The University is at present
+          operating from several hired buildings spread over 17 kms along the National Highway - 10. The main
+          administrative office of the University is located at Samdur, 6th Mile, Tadong. The permanent campus site of
+          the University is located at Yangang in South Sikkim. The nearest airport is at Bagdogra and the nearest
+          railway station is at New Jalpaiguri.
+
+        </p>
+      </div>
+
+      <div class="row no-gutters justify-content-center" data-aos="fade-up">
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <div class="info">
+            <div class="address">
+              <i class="icofont-google-map"></i>
+              <h4>Location:</h4>
+              <p>8H5Q+G58, Samdur, P. O, Tadong, <br>
+                Gangtok, Sikkim 737102</p>
+            </div>
+
+            <div class="email mt-4">
+              <i class="icofont-envelope"></i>
+              <h4>Email:</h4>
+              <p>contactus@cus.ac.in</p>
+            </div>
+
+            <div class="phone mt-4">
+              <i class="icofont-phone"></i>
+              <h4>Call:</h4>
+              <p>03592 251 468</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14180.562665766094!2d88.5879671!3d27.3087859!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a4f88a7ab83f%3A0x122be2bbb28e558c!2sSikkim%20University!5e0!3m2!1sen!2sin!4v1675110386372!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+{% endblock %}
